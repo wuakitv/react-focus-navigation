@@ -17,6 +17,10 @@
     "navigation",
     "focus"
   ],
+  "homepage": "https://github.com/wuakitv/react-focus-navigation",
+  "bugs": {
+    "url": "https://github.com/wuakitv/react-focus-navigation/issues"
+  },
   "license": "ISC",
   "peerDependencies": {
     "react": "^16.4.1"

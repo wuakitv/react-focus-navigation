@@ -94,8 +94,7 @@ class App extends React.Component {
     return (
       <Controller>
         <h1>
-          {" "}
-          Vertical Columns - By default, it moves the focus either up or down{" "}
+          Vertical Columns - By default, it moves the focus either up or down
         </h1>
         <p>
           If we move out of the scope of each list, it moves to the next or
