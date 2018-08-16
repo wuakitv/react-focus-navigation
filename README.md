@@ -2,6 +2,16 @@
 
 This project aims to build a navigation tool based on React.
 
+# How to install
+
+Run the following command:
+
+    npm install --save-dev react-focus-navigation 
+
+or in case of using yarn:
+
+    yarn add react-focus-navigation --dev
+
 # How to use
 
 There are 3 main components:
