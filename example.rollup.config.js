@@ -9,8 +9,13 @@ export default {
   output: {
     file: "example/build/bundle.js",
     format: "iife",
-    name: "ReactSpatialNavigation"
+    name: "ReactFocusNavigation",
+    globals: {
+      react: "React",
+      "react-dom": "ReactDOM"
+    }
   },
+  external: ["react", "react-dom"],
   plugins: [
     babel({
       exclude: "node_modules/**" // only transpile our source code

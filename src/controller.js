@@ -320,6 +320,9 @@ export default class Controller extends React.Component {
     this.quitFocusInParent(tree[currentFocus], tree[currentFocus].currentFocus);
     this.setFocusState(nextFocus, nextFocus => {
       const parent = this.state.tree[nextFocus];
+
+      if (parent.props.onReceive) parent.props.onReceive(nextFocus);
+
       this.moveFocusInParent(parent, DEFAULT);
     });
   }

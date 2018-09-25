@@ -53,6 +53,11 @@ class App extends React.Component {
   blur(index) {
     alert("Blur on element " + index);
   }
+
+  onReceive(index) {
+    alert("focus received on List " + index);
+  }
+
   render() {
     return (
       <Controller>
@@ -72,13 +77,17 @@ class App extends React.Component {
           <VerticalParent
             onFocus={index => this.focus(index)}
             onBlur={index => this.blur(index)}
+            onReceive={index => this.onReceive(index)}
             className={"vertical-focusable"}
             withFocus
           >
             <Item />
             <Item />
           </VerticalParent>
-          <VerticalParent className={"vertical-focusable"}>
+          <VerticalParent
+            onReceive={index => this.onReceive(index)}
+            className={"vertical-focusable"}
+          >
             <Item />
             <Item />
             <span className="focusable">

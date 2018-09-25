@@ -9,9 +9,13 @@ export default {
   output: {
     file: "build/bundle.js",
     format: "umd",
-    name: "react-focus-navigation"
+    name: "react-focus-navigation",
+    globals: {
+      react: "React",
+      "react-dom": "ReactDOM"
+    }
   },
-  external: ["React"],
+  external: ["react", "react-dom"],
   plugins: [
     babel({
       exclude: "node_modules/**" // only transpile our source code

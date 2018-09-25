@@ -51,9 +51,7 @@ as props to the Parent.
 ```js
 import React from "react";
 import ReactDOM from "react-dom";
-import Controller from "./../src/controller";
-import { VerticalParent } from "./../src/parent";
-import { Child } from "./../src/child";
+import { Controller, Child, VerticalParent } from "react-focus-navigation";
 
 export class Item extends React.Component {
   constructor(props) {
@@ -100,6 +98,11 @@ class App extends React.Component {
   blur() {
     alert("blur");
   }
+
+  onReceive(index) {
+    alert("focus received on List " + index);
+  }
+
   render() {
     return (
       <Controller>
@@ -118,12 +121,15 @@ class App extends React.Component {
           <VerticalParent
             onFocus={() => this.focus()}
             onBlur={() => this.blur()}
+            onReceive={index => this.onReceive(index)}
             className={"vertical-focusable"}
           >
             <Item />
             <Item />
           </VerticalParent>
-          <VerticalParent className={"vertical-focusable"}>
+          <VerticalParent
+            onReceive={index => this.onReceive(index)}
+            className={"vertical-focusable"}>
             <Item />
             <Item />
             <span className="focusable">
