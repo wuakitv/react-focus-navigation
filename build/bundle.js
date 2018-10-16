@@ -423,11 +423,21 @@
     }, {
       key: "addParentToTree",
       value: function addParentToTree(parent) {
-        this.state.tree.push(parent);
+        var currentFocus = this.getFocusState();
+
+        if (parent.props.index <= currentFocus) {
+          if (this.state.tree.length > 0 && this.state.tree[0].props.index === undefined) {
+            this.state.tree.splice(parent.props.index, 0, parent);
+          } else {
+            this.state.tree.splice(parent.props.index + 1, 0, parent);
+          }
+        } else {
+          this.state.tree.push(parent);
+        }
 
         if (parent.props.withFocus) {
-          var currentFocus = this.getFocusState();
-          var parentWithFocus = this.state.tree[currentFocus];
+          var _currentFocus = this.getFocusState();
+          var parentWithFocus = this.state.tree[_currentFocus];
           this.quitFocusInParent(parentWithFocus, parentWithFocus.currentFocus);
           this.setParentFocus(this.state.tree.indexOf(parent));
         }
